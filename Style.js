@@ -90,12 +90,33 @@ export const styles = StyleSheet.create({
         borderBottomRightRadius: 15,
         bottom: 0,
         width: '100%',
-        backgroundColor: 'rgba(92, 92, 92, 0.75)',
+        backgroundColor: 'rgba(92, 92, 92, 0.85)',
+    },
+    movieTitleDescSection: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        // alignContent: 'space-between',
     },
     movieTitle: {
         paddingStart: 10,
         paddingBottom: 5,
-        fontSize: 14,
+        fontSize: 16,
+        fontWeight: '800',
         color: colors.text
+    },
+    movieDesc: {
+        paddingStart: 10,
+        paddingEnd: 10,
+        paddingBottom: 5,
+        fontSize: 14,
+        color: '#86A29C'
+    },
+    ratingSection:{
+        flexDirection: 'row',
+        marginLeft: 10
+    } ,
+    ratingStar: {
+        width: 15,
+        height: 15
     }
 })

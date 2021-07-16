@@ -3,6 +3,7 @@ import { StatusBar, Text, View, Button, TextInput } from 'react-native';
 import { styles, colors } from '../../../Style';
 import PopularMoviesList from './PopularMoviesList';
 import axios from 'axios';
+import { HandleGetMovies } from '../dataManager';
 
 export default class Header extends React.Component{
     constructor(props) {
@@ -20,13 +21,11 @@ export default class Header extends React.Component{
             search: e
         })
     }
-    componentDidMount(){
-
-        axios.get('https://nativemovies.free.beeceptor.com/movies').then((res) => {
-            console.log(res.data);
-            this.setState({
-                data: res.data
-            })
+    async componentDidMount(){
+        let data = await HandleGetMovies();
+        // console.log(data);
+        this.setState({
+            data : data
         })
     }
 
