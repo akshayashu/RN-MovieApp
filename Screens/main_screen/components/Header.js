@@ -4,8 +4,9 @@ import { styles, colors } from '../../../Style';
 import PopularMoviesList from './PopularMoviesList';
 import axios from 'axios';
 import { HandleGetMovies } from '../dataManager';
+import { connect } from 'react-redux';
 
-export default class Header extends React.Component{
+class Header extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
@@ -27,6 +28,7 @@ export default class Header extends React.Component{
         this.setState({
             data : data
         })
+        this.props.updateMovies(data);
     }
 
     render(){
@@ -87,3 +89,17 @@ export default class Header extends React.Component{
         );
     }
 }
+
+const mapStateToProps = state => {
+    return {
+        data: state.data
+    }
+}
+
+const mapActionToProps = dispatch => {
+    return {
+        updateMovies: (data) => dispatch({type: "updateMovies", data: data})
+    }
+}
+
+export default connect(mapStateToProps, mapActionToProps)(Header);
